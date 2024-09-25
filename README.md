@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE: 25-09-2024
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: paida Ram sai
+###  ROLL NO : 212223110034
+###  DEPARTMENT: cse-iot
 
 
 # EXPERIMENT--04-INTERUPT-GENRATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR
@@ -118,11 +118,35 @@ The diagram below shows how the GPIO pins are connected to the 16 interrupt line
   
 
 ## STM 32 CUBE PROGRAM :
+```
+#if defined (__ICCARM__) || defined (__ARMCC_VERSION)
+#define PUTCHAR_PROTOTYPE int fputc(int ch,FILE *F)
+#elif defined(__GNUC__)
+#define PUTCHAR_PROTOTYPE int __IO_putchar(int ch)
+#endif
 
+void HAL_GPIO_EXIT_Callback(uint16_t GPIO_PIN)
+{
 
+	if(HAL_GPIO_Readpin(GPIOA,GPIO_PIN_0)==0)
+	{
+		printf("INTERRUPT OCCURED\n");
+	}
+	else
+	{
+		printf("INTERUPT DOESNOT OCCURED\n");
+	}
+}
 
+PUTCHAR_PROTOTYPE {
+	HAL_UART_Transmit(&huart2,(uint8_t *)ch,1,0XFFFF);
+	return ch;
+}
+
+```
 ## Output screen shots of serial port utility   :
- 
+![Screenshot (53)](https://github.com/user-attachments/assets/53a297be-c9e1-4b90-9944-c9068c5c8395)
+
  
  ## Circuit board :
  
